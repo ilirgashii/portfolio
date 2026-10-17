@@ -1,0 +1,6 @@
+.env
+.env*
+*.pem
+*.key
+.vscode/
+__pycache__/

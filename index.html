@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ilir | Junior Cloud Engineer and IT Administrator</title>
+<meta name="description" content="Portfolio of Ilir: AWS, Terraform, Docker, Linux and home lab projects.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+<style>
+:root{--bg:#fff;--fg:#1a1a18;--muted:#5f5e5a;--line:rgba(0,0,0,.14);--line2:rgba(0,0,0,.35);
+--blue:#185FA5;--blue-bg:#E6F1FB;--green:#27500A;--green-bg:#EAF3DE;--amber:#633806;--amber-bg:#FAEEDA;--purple:#3C3489;--purple-bg:#EEEDFE}
+@media (prefers-color-scheme:dark){:root{--bg:#161615;--fg:#f1efe8;--muted:#b4b2a9;--line:rgba(255,255,255,.16);--line2:rgba(255,255,255,.4);
+--blue:#B5D4F4;--blue-bg:#0C447C;--green:#C0DD97;--green-bg:#27500A;--amber:#FAC775;--amber-bg:#633806;--purple:#CECBF6;--purple-bg:#3C3489}}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font:15px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+#net{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.wrap{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column}
+.in{width:100%;max-width:none;margin:0 auto;padding:0 clamp(18px,5vw,96px)}
+header{border-bottom:.5px solid var(--line)}
+header .in{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
+.logo{font-weight:500;font-size:16px}
+nav{display:flex;gap:22px}
+nav button{background:none;border:none;border-bottom:1.5px solid transparent;padding:4px 0;font-size:14px;color:var(--muted)}
+nav button.on{color:var(--fg);border-bottom-color:var(--fg)}
+main{flex:1;display:flex;flex-direction:column}
+.view{display:none;flex:1;flex-direction:column}
+.view.on{display:flex}
+.sec{border-top:.5px solid var(--line);padding:22px 0 26px}
+.sec:first-child{border-top:none}
+.lbl{font-size:13px;color:var(--muted);margin:0 0 10px}
+h1{font-size:clamp(30px,3vw,56px);font-weight:500;line-height:1.2;margin:0 0 10px}
+h2{font-size:24px;font-weight:500;margin:0 0 8px}
+.lead{color:var(--muted);max-width:540px;margin:0 0 24px;font-size:16px}
+.hero{padding:56px 0 34px}
+.tracks{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;max-width:900px}
+.tr{display:block;text-align:left;background:transparent;border:.5px solid var(--line2);border-radius:12px;padding:16px}
+.tr.on{border:1.5px solid var(--blue);padding:15.0px}
+.tr i{font-size:22px}
+.tr b{display:block;font-weight:500;font-size:16px;margin-top:6px}
+.tr span{display:block;font-size:13px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:13px;padding:3px 11px;border-radius:6px;background:var(--blue-bg);color:var(--blue)}
+.chip.it{background:var(--green-bg);color:var(--green)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.card{display:block;border:.5px solid var(--line);border-radius:12px;padding:14px;transition:border-color .15s}
+.card:hover{border-color:var(--line2)}
+.thumb{position:relative;height:90px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;margin-bottom:12px;overflow:hidden}
+.thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.card h3{font-size:15px;font-weight:500;margin:0 0 4px}
+.card p{font-size:13px;color:var(--muted);margin:0 0 10px;line-height:1.5}
+.tag{display:inline-block;font-size:12px;padding:2px 9px;border-radius:6px;margin-right:4px}
+.more{display:block;margin-top:10px;font-size:13px;color:var(--blue)}
+.c-blue{background:var(--blue-bg);color:var(--blue)}.c-green{background:var(--green-bg);color:var(--green)}
+.c-amber{background:var(--amber-bg);color:var(--amber)}.c-purple{background:var(--purple-bg);color:var(--purple)}
+.skills{padding:24px 0}
+.skills .in{flex:1;display:flex;flex-direction:column}
+.bar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:12px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--muted)}
+.legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
+.touch{background:transparent;border:.5px solid var(--line2);border-radius:8px;padding:7px 14px;font-size:14px}
+.touch:hover{border-color:var(--fg)}
+#stage{position:relative;flex:1;min-height:420px}
+.sk{position:absolute;left:0;top:0;white-space:nowrap;font-size:13px;padding:6px 13px;border-radius:8px;border:.5px solid;will-change:transform}
+.contact{justify-content:center;padding:40px 0}
+.contact .grid{max-width:none}
+.contact .card i{font-size:26px}
+.contact .card b{display:block;font-weight:500;margin-top:8px}
+.contact .card span{font-size:13px;color:var(--muted)}
+footer{border-top:.5px solid var(--line)}
+footer .in{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:14px;padding-bottom:14px;font-size:14px;color:var(--muted)}
+@media (max-width:560px){h1{font-size:28px}.in{padding:0 18px}}
+</style>
+</head>
+<body>
+<canvas id="net" aria-hidden="true"></canvas>
+<div class="wrap">
+  <header><div class="in">
+    <span class="logo">Ilir</span>
+    <nav aria-label="Main">
+      <button id="n-home" onclick="go('home')">Home</button>
+      <button id="n-skills" onclick="go('skills')">Skills</button>
+      <button id="n-contact" onclick="go('contact')">Contact</button>
+    </nav>
+  </div></header>
+
+  <main>
+    <section id="v-home" class="view">
+      <div class="in">
+        <div class="hero">
+          <h1>Hi, I'm Ilir</h1>
+          <p class="lead">From AWS cloud infrastructure to my own home lab, I build, deploy, and manage systems. Explore my work below.</p>
+          <div class="tracks">
+            <button id="b-cloud" class="tr" onclick="pick('cloud')"><i class="ti ti-cloud"></i><b>Cloud Engineer</b><span>AWS, Terraform, Docker</span></button>
+            <button id="b-it" class="tr" onclick="pick('it')"><i class="ti ti-server"></i><b>IT Administrator</b><span>Linux, networking, security</span></button>
+          </div>
+        </div>
+        <div class="sec"><p class="lbl">Skills for this path</p><div id="path" class="chips"></div></div>
+        <div class="sec"><p class="lbl">Projects</p><div id="projects" class="grid"></div></div>
+      </div>
+    </section>
+
+    <section id="v-skills" class="view skills">
+      <div class="in">
+        <div class="bar">
+          <div id="legend" class="legend"></div>
+          <button id="tm" class="touch" onclick="toggleArrange()"><i class="ti ti-pointer"></i> <span id="tm-t">Touch me</span></button>
+        </div>
+        <div id="stage"></div>
+      </div>
+    </section>
+
+    <section id="v-contact" class="view contact">
+      <div class="in">
+        <h2>Let's talk</h2>
+        <p class="lead">Open to opportunities in Cloud Engineering, DevOps, and IT Administration. Feel free to get in touch.</p>
+        <div class="grid">
+          <a class="card" href="mailto:ilir@gixha.com"><i class="ti ti-mail"></i><b>Email</b><span>ilir@gixha.com</span></a>
+          <a class="card" href="https://github.com/ilirgashii" target="_blank" rel="noopener"><i class="ti ti-brand-github"></i><b>GitHub</b><span>github.com/ilirgashii</span></a>
+          <a class="card" href="https://www.linkedin.com/in/ilir-gashi/" target="_blank" rel="noopener"><i class="ti ti-brand-linkedin"></i><b>LinkedIn</b><span>linkedin.com/in/ilir-gashi/</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="in">
+    <span>gixha.com</span>
+  </div></footer>
+</div>
+
+<script>
+/* ---------- EDIT THESE ---------- */
+var tracks = {
+  cloud:{rgb:[55,138,221], cls:'', s:['AWS: VPC, EC2, RDS, S3, IAM','Terraform','Docker','Python','PostgreSQL','Git, CI/CD']},
+  it:{rgb:[29,158,117], cls:' it', s:['Linux, Ubuntu Server','Windows and WSL','OPNsense, ufw','DNS, SPF, DKIM, DMARC','KVM, Docker','Tailscale VPN']}
+};
+var projects = [
+  {t:'GroceryMate', d:'AWS infrastructure provisioned with Terraform. Custom VPC, Dockerized EC2 application, private RDS PostgreSQL, S3 storage, and CloudWatch monitoring.', tags:['Terraform','AWS'], c:'blue', label:'Deployed on AWS', img:'img/grocerymate.png', href:'https://github.com/ilirgashii/AWS_grocery/blob/version2/infrastructure/docs/grocerymate-aws-architecture.png'},
+  {t:'Nlocki', d:'Social application deployed using Docker Compose on my self-hosted Ubuntu Server.', tags:['Docker','KVM'], c:'green', label:'Self-Hosted', img:'img/nlocki.png', href:'https://github.com/ilirgashii/Nlocki/blob/main/README.md'},
+  {t:'Home server lab', d:'Self-hosted infrastructure with Ubuntu Server, Docker, OPNsense firewall, SSH key authentication, and secure remote access via Tailscale.', tags:['Linux','Security'], c:'amber', label:'Home Lab Infrastructure', img:'img/home-lab.png', href:'https://github.com/ilirgashii/HomeLab/blob/main/README.md'},
+  
+];
+var cats = {
+  aws:{n:'AWS', c:[55,138,221]}, iac:{n:'IaC and containers', c:[186,117,23]}, sys:{n:'Linux and systems', c:[29,158,117]},
+  net:{n:'Networking and security', c:[127,119,221]}, code:{n:'Code and data', c:[216,90,48]}, tool:{n:'Tools', c:[136,135,128]}
+};
+var skills = [
+ ['EC2','aws'],['VPC','aws'],['RDS','aws'],['S3','aws'],['IAM','aws'],['CloudWatch','aws'],['Security Groups','aws'],['Subnets','aws'],['Route tables','aws'],['Internet Gateway','aws'],
+ ['Terraform','iac'],['Docker','iac'],['Docker Compose','iac'],['KVM','iac'],
+ ['Linux','sys'],['Ubuntu Server','sys'],['Amazon Linux','sys'],['Bash','sys'],['WSL','sys'],['Windows','sys'],['LVM','sys'],
+ ['OPNsense','net'],['ufw','net'],['NAT','net'],['DHCP','net'],['DNS','net'],['Tailscale','net'],['Cloudflare','net'],['SPF, DKIM, DMARC','net'],['SSH keys','net'],['LAN and routers','net'],
+ ['Python','code'],['JavaScript','code'],['HTML and CSS','code'],['PostgreSQL','code'],['MySQL','code'],['REST APIs','code'],
+ ['Git','tool'],['GitHub','tool'],['draw.io','tool'],['Zoho Mail','tool']
+];
+/* -------------------------------- */
+
+var order = ['aws','iac','sys','net','code','tool'];
+var views = ['home','skills','contact'], view = 'home', track = 'cloud';
+var target = tracks.cloud.rgb.slice(), cur = target.slice();
+var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var stage = document.getElementById('stage'), chips = [], inited = false, arranged = false, MINH = 420;
+
+document.getElementById('projects').innerHTML = projects.map(function(p){
+  return '<a class="card" href="'+p.href+'" target="_blank" rel="noopener"><div class="thumb c-'+p.c+'">'+p.label+
+    '<img src="'+p.img+'" alt="'+p.t+'" onerror="this.remove()"></div><h3>'+p.t+'</h3><p>'+p.d+'</p>'+
+    p.tags.map(function(t){return '<span class="tag c-'+p.c+'">'+t+'</span>';}).join('')+
+    '<span class="more">View README <i class="ti ti-arrow-right"></i></span></a>';
+}).join('');
+document.getElementById('legend').innerHTML = order.map(function(k){
+  return '<span><i style="background:rgb('+cats[k].c.join(',')+')"></i>'+cats[k].n+'</span>';
+}).join('');
+
+function pick(t){
+  track = t; var d = tracks[t];
+  document.getElementById('path').innerHTML = d.s.map(function(s){return '<span class="chip'+d.cls+'">'+s+'</span>';}).join('');
+  document.getElementById('b-cloud').classList.toggle('on', t==='cloud');
+  document.getElementById('b-it').classList.toggle('on', t==='it');
+  target = d.rgb.slice(); if (still) drawDots();
+}
+function go(v){
+  view = v;
+  views.forEach(function(k){
+    document.getElementById('v-'+k).classList.toggle('on', k===v);
+    document.getElementById('n-'+k).classList.toggle('on', k===v);
+  });
+  if (v==='skills') initSkills();
+  window.scrollTo(0,0); sizeDots();
+}
+
+function initSkills(){
+  if (inited){ if (arranged) layout(); return; }
+  var W = stage.offsetWidth, H = stage.offsetHeight;
+  skills.forEach(function(s){
+    var c = cats[s[1]].c, el = document.createElement('div');
+    el.className = 'sk'; el.textContent = s[0];
+    el.style.borderColor = 'rgba('+c.join(',')+',.75)';
+    el.style.background = 'rgba('+c.join(',')+',.16)';
+    stage.appendChild(el);
+    chips.push({el:el, cat:s[1], w:el.offsetWidth, h:el.offsetHeight, x:Math.random()*(W-120), y:Math.random()*(H-34), vx:(Math.random()-.5)*.7, vy:(Math.random()-.5)*.7, tx:0, ty:0});
+  });
+  inited = true;
+  if (still){ arranged = true; document.getElementById('tm-t').textContent = 'Let them float'; }
+  if (arranged) layout();
+}
+function layout(){
+  var W = stage.offsetWidth, x = 2, y = 2, gap = 9, rowH = 0;
+  order.forEach(function(k){
+    if (x > 2){ x = 2; y += rowH + 16; rowH = 0; }
+    chips.forEach(function(c){
+      if (c.cat !== k) return;
+      if (x + c.w > W){ x = 2; y += rowH + gap; rowH = 0; }
+      c.tx = x; c.ty = y; x += c.w + gap; rowH = Math.max(rowH, c.h);
+    });
+  });
+  stage.style.minHeight = Math.max(MINH, y + rowH + 8) + 'px';
+  if (still) chips.forEach(function(c){ c.x = c.tx; c.y = c.ty; c.el.style.transform = 'translate3d('+c.x+'px,'+c.y+'px,0)'; });
+}
+function toggleArrange(){
+  arranged = !arranged;
+  document.getElementById('tm-t').textContent = arranged ? 'Let them float' : 'Touch me';
+  if (arranged) layout();
+  else { stage.style.minHeight = MINH + 'px'; chips.forEach(function(c){ c.vx = (Math.random()-.5)*.9; c.vy = (Math.random()-.5)*.9; }); }
+}
+function stepChips(){
+  var W = stage.offsetWidth, H = stage.offsetHeight;
+  chips.forEach(function(c){
+    if (arranged){ c.x += (c.tx-c.x)*.14; c.y += (c.ty-c.y)*.14; }
+    else {
+      c.x += c.vx; c.y += c.vy;
+      if (c.x < 0){ c.x = 0; c.vx = Math.abs(c.vx); }
+      if (c.x > W-c.w){ c.x = W-c.w; c.vx = -Math.abs(c.vx); }
+      if (c.y < 0){ c.y = 0; c.vy = Math.abs(c.vy); }
+      if (c.y > H-c.h){ c.y = H-c.h; c.vy = -Math.abs(c.vy); }
+    }
+    c.el.style.transform = 'translate3d('+c.x+'px,'+c.y+'px,0)';
+  });
+}
+
+var cv = document.getElementById('net'), cx = cv.getContext('2d'), W = 0, H = 0, dots = [], dpr = window.devicePixelRatio || 1;
+function sizeDots(){
+  W = window.innerWidth; H = window.innerHeight;
+  cv.width = W*dpr; cv.height = H*dpr; cx.setTransform(dpr,0,0,dpr,0,0);
+  var n = Math.min(90, Math.round(W*H/13000));
+  while (dots.length < n) dots.push({x:Math.random()*W, y:Math.random()*H, vx:(Math.random()-.5)*.3, vy:(Math.random()-.5)*.3});
+  dots.length = n;
+  if (inited && arranged) layout();
+  if (still) drawDots();
+}
+function drawDots(){
+  for (var k=0;k<3;k++) cur[k] += (target[k]-cur[k])*(still ? 1 : .06);
+  var col = 'rgb('+Math.round(cur[0])+','+Math.round(cur[1])+','+Math.round(cur[2])+')';
+  cx.clearRect(0,0,W,H); cx.strokeStyle = col; cx.fillStyle = col; cx.lineWidth = .7;
+  for (var i=0;i<dots.length;i++){
+    var a = dots[i];
+    if (!still){ a.x += a.vx; a.y += a.vy; }
+    if (a.x<0||a.x>W) a.vx *= -1;
+    if (a.y<0||a.y>H) a.vy *= -1;
+    for (var j=i+1;j<dots.length;j++){
+      var b = dots[j], dx = a.x-b.x, dy = a.y-b.y, d = Math.sqrt(dx*dx+dy*dy);
+      if (d < 120){ cx.globalAlpha = (1-d/120)*.4; cx.beginPath(); cx.moveTo(a.x,a.y); cx.lineTo(b.x,b.y); cx.stroke(); }
+    }
+    cx.globalAlpha = .6; cx.beginPath(); cx.arc(a.x,a.y,1.9,0,6.283); cx.fill();
+  }
+  cx.globalAlpha = 1;
+}
+window.addEventListener('resize', sizeDots);
+sizeDots();
+if (!still) (function loop(){ drawDots(); if (view==='skills' && inited) stepChips(); requestAnimationFrame(loop); })();
+
+var hash = location.hash.slice(1);
+pick(hash==='it' ? 'it' : 'cloud');
+go(hash==='skills' || hash==='contact' ? hash : 'home');
+</script>
+</body>
+</html>
