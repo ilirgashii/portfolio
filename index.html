@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ilir | Junior Cloud Engineer and IT Administrator</title>
-<meta name="description" content="Portfolio of Ilir: AWS, Terraform, Docker, Linux and home lab projects.">
+<meta name="description" content="Portfolio of Ilir: AWS, Terraform, Docker, Linux, OPNsense, WireGuard VPN, Pi-hole DNS and self-hosted infrastructure projects.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
 <style>
 :root{--bg:#fff;--fg:#1a1a18;--muted:#5f5e5a;--line:rgba(0,0,0,.14);--line2:rgba(0,0,0,.35);
@@ -92,7 +92,7 @@ footer .in{display:flex;align-items:center;justify-content:space-between;flex-wr
       <div class="in">
         <div class="hero">
           <h1>Hi, I'm Ilir</h1>
-          <p class="lead">From AWS cloud infrastructure to my own home lab, I build, deploy, and manage systems. Explore my work below.</p>
+          <p class="lead">I build and troubleshoot AWS cloud infrastructure and self-hosted systems, from Terraform and Docker to OPNsense firewalls, WireGuard VPN and network DNS. Explore my hands-on projects below.</p>
           <div class="tracks">
             <button id="b-cloud" class="tr" onclick="pick('cloud')"><i class="ti ti-cloud"></i><b>Cloud Engineer</b><span>AWS, Terraform, Docker</span></button>
             <button id="b-it" class="tr" onclick="pick('it')"><i class="ti ti-server"></i><b>IT Administrator</b><span>Linux, networking, security</span></button>
@@ -135,12 +135,14 @@ footer .in{display:flex;align-items:center;justify-content:space-between;flex-wr
 /* ---------- EDIT THESE ---------- */
 var tracks = {
   cloud:{rgb:[55,138,221], cls:'', s:['AWS: VPC, EC2, RDS, S3, IAM','Terraform','Docker','Python','PostgreSQL','Git, CI/CD']},
-  it:{rgb:[29,158,117], cls:' it', s:['Linux, Ubuntu Server','Windows and WSL','OPNsense, ufw','DNS, SPF, DKIM, DMARC','KVM, Docker','Tailscale VPN']}
+  it:{rgb:[29,158,117], cls:' it', s:['Ubuntu Server and Docker','OPNsense firewall, VLANs','WireGuard VPN, SSH keys','Pi-hole DNS and DHCP','Network troubleshooting','Sensor monitoring']}
 };
 var projects = [
   {t:'GroceryMate', d:'AWS infrastructure provisioned with Terraform. Custom VPC, Dockerized EC2 application, private RDS PostgreSQL, S3 storage, and CloudWatch monitoring.', tags:['Terraform','AWS'], c:'blue', label:'Deployed on AWS', img:'img/grocerymate.png', href:'https://github.com/ilirgashii/AWS_grocery/blob/version2/infrastructure/docs/grocerymate-aws-architecture.png'},
   {t:'Nlocki', d:'Social application deployed using Docker Compose on my self-hosted Ubuntu Server.', tags:['Docker','KVM'], c:'green', label:'Self-Hosted', img:'img/nlocki.png', href:'https://github.com/ilirgashii/Nlocki/blob/main/README.md'},
-  {t:'Home server lab', d:'Self-hosted infrastructure with Ubuntu Server, Docker, OPNsense firewall, SSH key authentication, and secure remote access via Tailscale.', tags:['Linux','Security'], c:'amber', label:'Home Lab Infrastructure', img:'img/home-lab.png', href:'https://github.com/ilirgashii/HomeLab/blob/main/README.md'},
+  {t:'Home Lab & Network Security', d:'Designed and operated a home lab with Ubuntu Server, an OPNsense firewall, VLAN-aware Omada switching, WireGuard VPN, and Docker services.', tags:['OPNsense','WireGuard','VLAN'], c:'amber', label:'Networking and Security', img:'img/home-lab.png', href:'https://github.com/ilirgashii/HomeLab'},
+  {t:'Pi-hole DNS & Troubleshooting', d:'Deployed Pi-hole in Docker, verified DNS filtering, and troubleshot DHCP/DNS behavior across LAN and mobile clients.', tags:['Pi-hole','DNS','Docker'], c:'green', label:'Network Services', img:'img/home-lab.png', href:'https://github.com/ilirgashii/HomeLab'},
+  {t:'Infrastructure Monitoring', d:'Integrated Bluetooth temperature and humidity readings into a self-hosted monitoring workflow and tested alert persistence after restarts.', tags:['Monitoring','Linux'], c:'purple', label:'Home Lab Operations', img:'img/home-lab.png', href:'https://github.com/ilirgashii/HomeLab'},
   
 ];
 var cats = {
@@ -150,8 +152,8 @@ var cats = {
 var skills = [
  ['EC2','aws'],['VPC','aws'],['RDS','aws'],['S3','aws'],['IAM','aws'],['CloudWatch','aws'],['Security Groups','aws'],['Subnets','aws'],['Route tables','aws'],['Internet Gateway','aws'],
  ['Terraform','iac'],['Docker','iac'],['Docker Compose','iac'],['KVM','iac'],
- ['Linux','sys'],['Ubuntu Server','sys'],['Amazon Linux','sys'],['Bash','sys'],['WSL','sys'],['Windows','sys'],['LVM','sys'],
- ['OPNsense','net'],['ufw','net'],['NAT','net'],['DHCP','net'],['DNS','net'],['Tailscale','net'],['Cloudflare','net'],['SPF, DKIM, DMARC','net'],['SSH keys','net'],['LAN and routers','net'],
+ ['Linux','sys'],['Ubuntu Server','sys'],['Amazon Linux','sys'],['Bash','sys'],['WSL','sys'],['Windows','sys'],['LVM','sys'],['Monitoring','sys'],['Bluetooth sensors','sys'],
+ ['OPNsense','net'],['WireGuard VPN','net'],['VLANs','net'],['Omada switching','net'],['Pi-hole','net'],['ufw','net'],['NAT','net'],['DHCP','net'],['DNS','net'],['Tailscale','net'],['Cloudflare','net'],['SPF, DKIM, DMARC','net'],['SSH keys','net'],['LAN and routers','net'],
  ['Python','code'],['JavaScript','code'],['HTML and CSS','code'],['PostgreSQL','code'],['MySQL','code'],['REST APIs','code'],
  ['Git','tool'],['GitHub','tool'],['draw.io','tool'],['Zoho Mail','tool']
 ];
